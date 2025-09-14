@@ -1,21 +1,19 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Eye, EyeOff, User } from "lucide-react";
 
 const Login = () => {
-  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [usuario, setUsuario] = useState("");
   const [senha, setSenha] = useState("");
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simular login bem-sucedido e redirecionar para dashboard
+    // Lógica de login aqui
     console.log("Login attempt:", { usuario, senha });
-    navigate("/dashboard");
   };
 
   return (
