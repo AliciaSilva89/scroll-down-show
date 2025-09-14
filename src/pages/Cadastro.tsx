@@ -32,10 +32,12 @@ const Cadastro = () => {
       <div className="w-full max-w-md bg-card border-2 border-primary/20 rounded-lg p-8 shadow-lg">
         {/* Logo */}
         <div className="flex justify-center mb-6">
-          <div className="w-16 h-16 bg-gradient-to-br from-blue-500 via-purple-500 to-orange-400 rounded-xl flex items-center justify-center">
-            <span className="text-white font-bold text-xl">HS</span>
+            <img
+              src="/logohubdosaber.png"
+              className="w-20 h-20 rounded-lg object-cover"
+            />
           </div>
-        </div>
+      
 
         {/* Título */}
         <h1 className="text-2xl font-bold text-center mb-8 text-foreground">
