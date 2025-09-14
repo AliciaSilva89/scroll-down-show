@@ -9,6 +9,10 @@ import Cadastro from "./pages/Cadastro";
 import Dashboard from "./pages/Dashboard";
 import Saiba from "./pages/Saiba";
 import NotFound from "./pages/NotFound";
+import CreateGroup from "./pages/CreateGroup";
+import Profile from "./pages/Profile";
+import GroupView from "./pages/GroupView";
+import GroupChat from "./pages/GroupChat";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +28,10 @@ const App = () => (
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/saiba" element={<Saiba />} />
+          <Route path="/create-group" element={<CreateGroup />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/group/:id" element={<GroupView />} />
+          <Route path="/group/:id/chat" element={<GroupChat />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

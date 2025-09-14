@@ -95,15 +95,17 @@ const Dashboard = () => {
             <Link to="/dashboard" className="text-foreground hover:text-primary font-medium">
               Grupos
             </Link>
-            <Link to="/perfil" className="text-muted-foreground hover:text-primary">
+            <Link to="/profile" className="text-muted-foreground hover:text-primary">
               Perfil
             </Link>
             <Link to="/saiba" className="text-muted-foreground hover:text-primary">
               Saiba
             </Link>
-            <Button className="bg-black hover:bg-black/90 text-white">
-              Criar Grupo
-            </Button>
+            <Link to="/create-group">
+              <Button className="bg-black hover:bg-black/90 text-white">
+                Criar Grupo
+              </Button>
+            </Link>
           </nav>
         </div>
       </header>
@@ -156,35 +158,37 @@ const Dashboard = () => {
         {/* Groups Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredGroups.map((group) => (
-            <Card key={group.id} className="hover:shadow-lg transition-shadow cursor-pointer">
-              <CardHeader className="pb-3">
-                {/* Group Image Placeholder */}
-                <div className="w-full h-32 bg-gradient-to-r from-blue-100 via-purple-50 to-orange-50 rounded-lg mb-3 flex items-center justify-center">
-                  <div className="text-4xl">📚</div>
-                </div>
-                <CardTitle className="text-lg">{group.title}</CardTitle>
-                <CardDescription className="text-sm line-clamp-2">
-                  {group.description}
-                </CardDescription>
-              </CardHeader>
-              
-              <CardContent className="space-y-2 pt-0">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <MapPin className="h-4 w-4" />
-                  <span>{group.status}</span>
-                </div>
+            <Link key={group.id} to={`/group/${group.id}`}>
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+                <CardHeader className="pb-3">
+                  {/* Group Image Placeholder */}
+                  <div className="w-full h-32 bg-gradient-to-r from-blue-100 via-purple-50 to-orange-50 rounded-lg mb-3 flex items-center justify-center">
+                    <div className="text-4xl">📚</div>
+                  </div>
+                  <CardTitle className="text-lg">{group.title}</CardTitle>
+                  <CardDescription className="text-sm line-clamp-2">
+                    {group.description}
+                  </CardDescription>
+                </CardHeader>
                 
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Users className="h-4 w-4" />
-                  <span>{group.participants} participantes</span>
-                </div>
-                
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Clock className="h-4 w-4" />
-                  <span>{group.schedule}</span>
-                </div>
-              </CardContent>
-            </Card>
+                <CardContent className="space-y-2 pt-0">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <MapPin className="h-4 w-4" />
+                    <span>{group.status}</span>
+                  </div>
+                  
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Users className="h-4 w-4" />
+                    <span>{group.participants} participantes</span>
+                  </div>
+                  
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Clock className="h-4 w-4" />
+                    <span>{group.schedule}</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
 
