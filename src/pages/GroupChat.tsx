@@ -301,41 +301,48 @@ const GroupChat = () => {
               03/09/2020
             </div>
 
-            {messages.map((message) => (
-              <div key={message.id} className="flex items-start gap-3">
-                <Avatar className="w-8 h-8">
-                  <AvatarFallback className="text-xs">{message.avatar}</AvatarFallback>
-                </Avatar>
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="font-medium text-sm">{message.user}</span>
-                    {message.role && (
-                      <span className="text-xs text-muted-foreground">{message.role}</span>
-                    )}
-                    <span className="text-xs text-muted-foreground">{message.time}</span>
-                  </div>
-                  {message.message && <p className="text-sm">{message.message}</p>}
-                  {message.image && (
-                    <div className="relative group mt-2 max-w-xs">
-                      <img 
-                        src={message.image} 
-                        alt="Imagem enviada" 
-                        className="rounded-lg max-w-full h-auto cursor-pointer"
-                        onClick={() => setSelectedImage(message.image!)}
-                      />
-                      <Button
-                        variant="secondary"
-                        size="icon"
-                        className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                        onClick={() => handleDownloadImage(message.image!, message.id)}
-                      >
-                        <Download className="h-4 w-4" />
-                      </Button>
+            {messages.map((message) => {
+              const isOwnMessage = message.user === "Você";
+              return (
+                <div key={message.id} className={`flex items-start gap-3 ${isOwnMessage ? 'flex-row-reverse' : ''}`}>
+                  <Avatar className="w-8 h-8">
+                    <AvatarFallback className="text-xs">{message.avatar}</AvatarFallback>
+                  </Avatar>
+                  <div className={`flex-1 ${isOwnMessage ? 'text-right' : ''}`}>
+                    <div className={`flex items-center gap-2 mb-1 ${isOwnMessage ? 'justify-end' : ''}`}>
+                      <span className="font-medium text-sm">{message.user}</span>
+                      {message.role && (
+                        <span className="text-xs text-muted-foreground">{message.role}</span>
+                      )}
+                      <span className="text-xs text-muted-foreground">{message.time}</span>
                     </div>
-                  )}
+                    {message.message && (
+                      <p className={`text-sm inline-block px-3 py-2 rounded-lg ${isOwnMessage ? 'bg-blue-600 text-white' : 'bg-muted'}`}>
+                        {message.message}
+                      </p>
+                    )}
+                    {message.image && (
+                      <div className={`relative group mt-2 max-w-xs ${isOwnMessage ? 'ml-auto' : ''}`}>
+                        <img 
+                          src={message.image} 
+                          alt="Imagem enviada" 
+                          className="rounded-lg max-w-full h-auto cursor-pointer"
+                          onClick={() => setSelectedImage(message.image!)}
+                        />
+                        <Button
+                          variant="secondary"
+                          size="icon"
+                          className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                          onClick={() => handleDownloadImage(message.image!, message.id)}
+                        >
+                          <Download className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Message Input */}
