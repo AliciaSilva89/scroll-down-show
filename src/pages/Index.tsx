@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Users, Plus, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-image.png";
+import logo from "@/assets/logo.png";
 
 const Index = () => {
   return (
