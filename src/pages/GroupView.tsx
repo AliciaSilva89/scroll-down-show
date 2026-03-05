@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Users, Clock, MapPin, User, Calendar } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const GroupView = () => {
   const { id } = useParams();
