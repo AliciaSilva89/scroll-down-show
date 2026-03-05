@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Send, Settings, UserPlus, UserMinus, Lock, Image, Download, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 interface Message {
   id: number;
