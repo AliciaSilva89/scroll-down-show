@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Users, Plus, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-image.png";
+import logo from "@/assets/logo.png";
 
 const Index = () => {
   return (
@@ -12,9 +13,7 @@ const Index = () => {
       <header className="border-b bg-card px-6 py-4">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-purple-500 to-orange-400 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">HS</span>
-            </div>
+            <img src={logo} alt="Hub do Saber" className="w-10 h-10 object-contain" />
             <span className="font-semibold text-lg">Hub do Saber</span>
           </div>
           

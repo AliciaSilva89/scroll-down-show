@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Eye, EyeOff, User } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -23,9 +24,7 @@ const Login = () => {
       <div className="w-full max-w-md bg-card border-2 border-primary/20 rounded-lg p-8 shadow-lg">
         {/* Logo */}
         <div className="flex justify-center mb-6">
-          <div className="w-16 h-16 bg-gradient-to-br from-blue-500 via-purple-500 to-orange-400 rounded-xl flex items-center justify-center">
-            <span className="text-white font-bold text-xl">HS</span>
-          </div>
+          <img src={logo} alt="Hub do Saber" className="w-16 h-16 object-contain" />
         </div>
 
         {/* Título */}
