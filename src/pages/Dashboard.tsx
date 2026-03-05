@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Search, Users, Clock, MapPin } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState("");
